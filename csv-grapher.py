@@ -36,6 +36,16 @@ def plot_data_points(file_path):
             previous_x = x
             previous_y = y
 
+        # Go back to the beginning and plot black data points
+        turtle.pencolor('black')
+        turtle.penup()
+        file.seek(0)  # Reset the file pointer
+        for row in data:
+            x = int(row[0]) * 20
+            y = int(row[1]) * 2
+            turtle.goto(x - 300, y)
+            turtle.dot(8)  # Plot a black data point
+
         # Exit the turtle graphics window on click
         turtle.exitonclick()
 

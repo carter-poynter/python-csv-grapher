@@ -7,29 +7,31 @@ def plot_data_points(file_path):
         # Read the CSV data
         data = csv.reader(file)
 
-        # Initialize the turtle
-        turtle.speed(0)
+        # Initialize the turtle at the first data point
+        first_row = next(data)
         turtle.penup()
+        turtle.goto(int(first_row[0]) * 20 - 300, int(first_row[1]) * 2)
+        turtle.pendown()
+
+        # Set up turtle graphics
+        turtle.speed(0)
         turtle.width(3)
 
         # Iterate over the data and plot the points
-        previous_x = None
-        previous_y = None
-        for i, row in enumerate(data):
+        previous_x = int(first_row[0]) * 20
+        previous_y = int(first_row[1]) * 2
+        for row in data:
             # Extract the x and y coordinates from each row
-            x = int(row[0]) * 10
-            y = int(row[1])
+            x = int(row[0]) * 20
+            y = int(row[1]) * 2
 
             # Set the line color based on the trend
-            if previous_y is not None:
-                if y > previous_y:
-                    turtle.goto(x, y)
-                    turtle.pencolor('green')
-                    turtle.pendown()
-                elif y < previous_y:                    
-                    turtle.goto(x, y)
-                    turtle.pencolor('red')
-                    turtle.pendown()
+            if y > previous_y:
+                turtle.pencolor('green')
+            elif y < previous_y:
+                turtle.pencolor('red')
+
+            turtle.goto(x - 300 , y)
 
             previous_x = x
             previous_y = y

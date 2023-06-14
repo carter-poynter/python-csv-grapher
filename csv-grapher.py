@@ -48,7 +48,7 @@ def plot_data_points(file_path):
             x = int(row[0]) * scaleFactor
             y = int(row[1]) * scaleFactor / 15
             turtle.goto(x - 450, y - 100)
-            turtle.dot(6)  # Plot a black data point
+            turtle.dot(8)  # Plot a data point
 
         turtle.penup()
         turtle.goto(-450, -100)
@@ -75,7 +75,7 @@ def plot_data_points(file_path):
         for i in range(20):
             turtle.setheading(90)
             turtle.pendown()
-            turtle.forward(20)
+            turtle.forward(scaleFactor * .6666)
             turtle.setheading(180)
             turtle.forward(10)
             turtle.setheading(0)

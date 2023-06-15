@@ -35,7 +35,7 @@ def plot_data_points(file_path):
             turtle.forward(20)
             turtle.penup()
             turtle.forward(20)
-            turtle.write(i + 1, align="center")
+            turtle.write(i + 1, align="center", font=("Verdana", 10, "bold"))
             turtle.setheading(90)
             turtle.forward(20)
             turtle.forward(10)
@@ -54,17 +54,21 @@ def plot_data_points(file_path):
             turtle.forward(20)
             turtle.setheading(180)
             turtle.forward(30)
-            turtle.forward(20)
-            turtle.write((i + 1) * 10, align="center")
-            turtle.forward(-20)
-
-        # Write Y Axis Title
-        turtle.goto(-450, 75)
-        turtle.write("Stock Index")
+            turtle.forward(25)
+            turtle.setheading(270)
+            turtle.forward(8)
+            turtle.write((i + 1) * 10, align="center", font=("Verdana", 10, "bold"))
+            turtle.forward(-8)
+            turtle.setheading(180)
+            turtle.forward(-25)
 
         # Write X Axis Title
-        turtle.goto(0, -150)
-        turtle.write("Days")
+        turtle.goto(-440, 75)
+        turtle.write("STOCK\rINDEX", align="center", font=("Verdana", 14, "bold"))
+
+        # Write Y Axis Title
+        turtle.goto(0, -175)
+        turtle.write("DAYS", align="center", font=("Verdana", 14, "bold"))
 
         # Iterate over the data and plot the points
         
